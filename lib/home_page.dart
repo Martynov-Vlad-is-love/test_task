@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:test_task/color_generation.dart';
 
 /// Home page of the application.
 class HomePage extends StatefulWidget {
@@ -12,33 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const max = 255;
-
   Color backgroundColorOne = Colors.white;
   Color backgroundColorTwo = Colors.black;
-
-  Random random = Random();
-
-  int randomInt(int max) {
-    return random.nextInt(max);
-  }
-
-  void changeColor() {
-    setState(() {
-      backgroundColorOne = Color.fromRGBO(
-        randomInt(max),
-        randomInt(max),
-        randomInt(max),
-        1,
-      );
-      backgroundColorTwo = Color.fromRGBO(
-        randomInt(max),
-        randomInt(max),
-        randomInt(max),
-        1,
-      );
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +41,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               onPressed: () {
-                changeColor();
+                setState(() {
+                  backgroundColorOne = ColorGeneration().changeColor();
+                  backgroundColorTwo = ColorGeneration().changeColor();
+                });
               },
             ),
           ),
