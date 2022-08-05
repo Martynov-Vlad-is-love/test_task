@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const min = 0;
   static const max = 255;
 
   Color backgroundColorOne = Colors.white;
@@ -20,22 +19,22 @@ class _HomePageState extends State<HomePage> {
 
   Random random = Random();
 
-  int randomInt(int min, int max) {
-    return min - random.nextInt(max - min);
+  int randomInt(int max) {
+    return random.nextInt(max);
   }
 
-  void changeColor(int start, int end) {
+  void changeColor() {
     setState(() {
       backgroundColorOne = Color.fromRGBO(
-        randomInt(start, end),
-        randomInt(start, end),
-        randomInt(start, end),
+        randomInt(max),
+        randomInt(max),
+        randomInt(max),
         1,
       );
       backgroundColorTwo = Color.fromRGBO(
-        randomInt(start, end),
-        randomInt(start, end),
-        randomInt(start, end),
+        randomInt(max),
+        randomInt(max),
+        randomInt(max),
         1,
       );
     });
@@ -62,12 +61,13 @@ class _HomePageState extends State<HomePage> {
               child: const Text(
                 'Hey there',
                 style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30,
-                    fontWeight: FontWeight.w700,),
+                  color: Colors.black,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               onPressed: () {
-                changeColor(min, max);
+                changeColor();
               },
             ),
           ),
