@@ -17,9 +17,9 @@ class ColorGeneration {
   /// Change color.
   Color changeColor() {
     final color = Color.fromRGBO(
-      randomInt(max+1),
-      randomInt(max+1),
-      randomInt(max+1),
+      randomInt(max + 1),
+      randomInt(max + 1),
+      randomInt(max + 1),
       1,
     );
 
